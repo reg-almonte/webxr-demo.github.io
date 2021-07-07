@@ -7,12 +7,33 @@
         <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
         <script src="https://unpkg.com/aframe-physics-system@1.4.0/dist/aframe-physics-system.min.js"></script>
         <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+
+        <style>
+            .arjs-loader {
+              height: 100%;
+              width: 100%;
+              position: absolute;
+              top: 0;
+              left: 0;
+              background-color: rgba(0, 0, 0, 0.8);
+              z-index: 9999;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+          
+            .arjs-loader div {
+              text-align: center;
+              font-size: 1.25em;
+              color: white;
+            }
+          </style>
     </head>
 
-    <body>
+    <body style="margin : 0px; overflow: hidden;">
         <div class="arjs-loader">
             <div>WebVR AFrame Sample 2 is loading, please wait...</div>
-          </div>
+        </div>
         <a-scene>
         <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
         <a-box position="-1 0.5 -3" rotation="0 45 0" width="1" height="1" depth="1" color="#4CC3D9"></a-box>
