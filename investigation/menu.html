@@ -85,24 +85,27 @@
       
       mainMenu.addEventListener("mouseenter", function() {
         mainMenu.setAttribute("material","color: #006600")
+      });
+
+      mainMenu.addEventListener("click", function() {
         if (menuIsOpen) return;
-        expiryDate = Date.now() + 990;
-        expired=false;
-        sleep(1000).then(() => {
-          if (!expired & Date.now() > expiryDate) {
-            menuIsOpen=true;
-            cursorMenu.setAttribute("visible", "true" ); 
-            exitMenu.setAttribute("visible", "true" );
-          }
-        });        
+        // expiryDate = Date.now() + 990;
+        // expired=false;
+        // sleep(1000).then(() => {
+        //   if (!expired & Date.now() > expiryDate) {
+        menuIsOpen=true;
+        cursorMenu.setAttribute("visible", "true" ); 
+        exitMenu.setAttribute("visible", "true" );
+        //   }
+        // });        
       });
       
       mainMenu.addEventListener("mouseleave", function() {
         mainMenu.setAttribute("material","color: #009900")
-        expired=true;
+        // expired=true;
       });
       
-      exitMenu.addEventListener("mouseenter", function() {
+      exitMenu.addEventListener("click", function() {
         exitMenu.setAttribute("material","color: #006600")
         expiryDate = Date.now() + 990;
         expired=false;
