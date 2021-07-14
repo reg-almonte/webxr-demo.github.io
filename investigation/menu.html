@@ -42,12 +42,11 @@
             
       <!-- <a-entity camera="active: true" look-controls wasd-controls position="0 1.6 0" data-aframe-default-camera></a-entity> -->
       <!-- <a-camera><a-cursor id="cursor" color="red"></a-cursor></a-camera> -->
-      <a-entity position="0 1.6 0">
+      <a-entity position="0 2.2 4">
         <a-entity camera look-controls wasd-controls>
-          <a-entity id="cursor"
-                    position="0 0 -1"
-                    geometry="primitive: ring; radiusInner: 0.1; radiusOuter: 0.2;"
-                    material="color: red; shader: flat"
+          <a-entity position="0 0 -3"
+                    geometry="primitive: ring; radiusInner: 0.2; radiusOuter: 0.3;"
+                    material="color: green; shader: flat"
                     cursor="maxDistance: 30; fuse: true">
             <a-animation begin="click" easing="ease-in" attribute="scale"
                  fill="forwards" from="0.2 0.2 0.2" to="1 1 1" dur="150"></a-animation>
@@ -56,7 +55,6 @@
           </a-entity>
         </a-entity>
       </a-entity>
-    </a-scene>
     
     <script>
       function sleep(ms) {
