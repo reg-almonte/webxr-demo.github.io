@@ -33,7 +33,8 @@
 <!--       <a-box color="#EF2D5E" height="0.2" width="0.2" depth="0.2" position="0 1 -1" change-color-on-hover="color: blue"></a-box> -->
       
       <a-text id="mainMenu" value="Menu" align="center" color="#fff" visible="true" position="-1 2 -2"
-                geometry="primitive: plane; width: 1.0; height: 0.3" material="color: #009900"></a-text>
+                geometry="primitive: plane; width: 1.0; height: 0.3" material="color: #009900"
+                change-color-on-hover="color: blue"></a-text>
       
       <a-text id="cursorMenu" value="Cursor" align="center" color="#FFF" visible="false" position="-0.75 1.65 -2"
                 geometry="primitive: plane; width: 1.0; height: 0.3" material="color: #009900"></a-text>
@@ -42,7 +43,7 @@
             
       <!-- <a-entity camera="active: true" look-controls wasd-controls position="0 1.6 0" data-aframe-default-camera></a-entity> -->
       <!-- <a-camera><a-cursor id="cursor" color="red"></a-cursor></a-camera> -->
-      <a-entity position="0 2.2 4">
+      <a-entity position="0 2.2 3">
         <a-entity camera look-controls wasd-controls>
           <a-entity position="0 0 -3"
                     geometry="primitive: ring; radiusInner: 0.2; radiusOuter: 0.3;"
@@ -82,9 +83,9 @@
                       "teal":"#008080",turquoise:"#40e0d0","violet":"#ee82ee","yellow":"#ffff00"};
       
       
-      mainMenu.addEventListener("mouseenter", function() {
-        mainMenu.setAttribute("material","color: #006600")
-      });
+    //   mainMenu.addEventListener("mouseenter", function() {
+    //     mainMenu.setAttribute("material","color: #006600")
+    //   });
 
       mainMenu.addEventListener("click", function() {
         if (menuIsOpen) return;
@@ -99,10 +100,10 @@
         // });        
       });
       
-      mainMenu.addEventListener("mouseleave", function() {
-        mainMenu.setAttribute("material","color: #009900")
-        // expired=true;
-      });
+    //   mainMenu.addEventListener("mouseleave", function() {
+    //     mainMenu.setAttribute("material","color: #009900")
+    //     // expired=true;
+    //   });
       
       exitMenu.addEventListener("click", function() {
         exitMenu.setAttribute("material","color: #006600")
