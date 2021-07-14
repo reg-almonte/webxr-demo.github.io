@@ -37,9 +37,11 @@
                 change-color-on-hover="color: #006600"></a-text>
       
       <a-text id="cursorMenu" value="Cursor" align="center" color="#FFF" visible="false" position="-0.75 1.65 -2"
-                geometry="primitive: plane; width: 1.0; height: 0.3" material="color: #009900"></a-text>
+                geometry="primitive: plane; width: 1.0; height: 0.3" material="color: #009900"
+                change-color-on-hover="color: #006600"></a-text>
       <a-text id="exitMenu" value="x" height="4" width="4" align="center" color="red" visible="false" position="-0.25 1.85 -1.99"
-                geometry="primitive: plane; width: 0.15; height: 0.15" material="color: #009900"></a-text>
+                geometry="primitive: plane; width: 0.15; height: 0.15" material="color: #009900"
+                change-color-on-hover="color: #006600"></a-text>
             
       <!-- <a-entity camera="active: true" look-controls wasd-controls position="0 1.6 0" data-aframe-default-camera></a-entity> -->
       <!-- <a-camera><a-cursor id="cursor" color="red"></a-cursor></a-camera> -->
@@ -51,9 +53,9 @@
             animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
             animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
             cursor="fuse: true;"
-            material="color: black; shader: flat"
+            material="color: pink; shader: flat"
             position="0 0 -3"
-            geometry="primitive: ring"></a-entity>
+            geometry="primitive: ring; radiusInner: 0.05; radiusOuter: 0.08"></a-entity>
         </a-entity>
       </a-entity>
     
@@ -90,33 +92,19 @@
       });
           
       exitMenu.addEventListener("click", function() {
-        exitMenu.setAttribute("material","color: #006600")
-        expiryDate = Date.now() + 990;
-        expired=false;
-        sleep(1000).then(() => {
-          if (!expired & Date.now() > expiryDate) {
-            menuIsOpen = false;
-            cursorMenu.setAttribute("visible", "false" ); 
-            exitMenu.setAttribute("visible", "false" );
-            if (colorTextsCreated) {
-              for (let i = 0; i < Object.keys(colors).length; i++) {
-                var elem = document.getElementById("color_" + i.toString());
-                elem.setAttribute("visible", "false");
-              }
+        menuIsOpen = false;
+        cursorMenu.setAttribute("visible", "false" ); 
+        exitMenu.setAttribute("visible", "false" );
+        if (colorTextsCreated) {
+            for (let i = 0; i < Object.keys(colors).length; i++) {
+            var elem = document.getElementById("color_" + i.toString());
+            elem.setAttribute("visible", "false");
             }
-          }
-        });
+        }
       });
       
-      exitMenu.addEventListener("mouseleave", function() {
-        exitMenu.setAttribute("material","color: #009900")
-        expired=true;
-      });
-      
-      let i = 0;
-      cursorMenu.addEventListener("mouseenter", function() {
+      cursorMenu.addEventListener("click", function() {
         if (!menuIsOpen) return;
-        cursorMenu.setAttribute("material","color: #006600");
         
         if (!colorTextsCreated) {
           let nCols = 4;
@@ -196,13 +184,8 @@
               elem.setAttribute("visible", "true");
             }
         }
-        
-        
       });
       
-      cursorMenu.addEventListener("mouseleave", function() {
-        cursorMenu.setAttribute("material","color: #009900")
-      });
     </script>
   </body>
 </html>
