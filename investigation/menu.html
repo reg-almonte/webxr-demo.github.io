@@ -18,7 +18,7 @@
         var defaultColor = el.getAttribute('material').color;
 
         el.addEventListener('mouseenter', function () {
-            el.setAttribute('color', data.color);
+            mainMenu.setAttribute("material","color: " + data.color.toString());
         });
 
         el.addEventListener('mouseleave', function () {
@@ -34,7 +34,7 @@
       
       <a-text id="mainMenu" value="Menu" align="center" color="#fff" visible="true" position="-1 2 -2"
                 geometry="primitive: plane; width: 1.0; height: 0.3" material="color: #009900"
-                change-color-on-hover="color: blue"></a-text>
+                change-color-on-hover="color: #006600"></a-text>
       
       <a-text id="cursorMenu" value="Cursor" align="center" color="#FFF" visible="false" position="-0.75 1.65 -2"
                 geometry="primitive: plane; width: 1.0; height: 0.3" material="color: #009900"></a-text>
