@@ -8,8 +8,13 @@
     </head>
 
     <body>
-        <img id="img" src="hand.jpg"/>
-
+        <header>
+            <h1>Hand Tracking</h1>
+        </header>
+        <main>
+            <img id="img" src="hand.jpg"/>
+        </main>
+        
         <script>
             const img = document.getElementById('img');  
             handTrack.load().then(model => { 
