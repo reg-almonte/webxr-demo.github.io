@@ -8,12 +8,15 @@
     </head>
 
     <body>
-        <img id="img" src="hand.jpg"/>  
+        <img id="img" src="hand.jpg"/>
 
         <script>
-            const img = document.getElementById('img'); 
-            const model =  await handTrack.load();
-            const predictions = await model.detect(img); 
+            const img = document.getElementById('img');  
+            handTrack.load().then(model => { 
+                model.detect(img).then(predictions => {
+                console.log('Predictions: ', predictions) // bbox predictions
+                });
+            });
           </script>
     </body>
 </html>
