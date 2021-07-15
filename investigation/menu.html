@@ -150,7 +150,7 @@
               colorText.setAttribute("material","color: #fff")
               expiryDate = Date.now() + 990;
               expired=false;
-              sleep(1000).then(() => {
+              sleep(1500).then(() => {
                 if (!expired & Date.now() > expiryDate) {
                   cursor.setAttribute("material", "color: ".concat([colorVal]).concat("; shader: flat"));
                 }
