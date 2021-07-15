@@ -29,7 +29,10 @@
     </script>
   </head>
   <body>
-    <a-scene>
+    <a-scene  vr-mode-ui="enterVRButton: #myEnterVRButton; enterARButton: #myEnterARButton">
+      <!-- Style the button with images or whatever. -->
+      <a id="myEnterVRButton" href="#"></a>
+      <a id="myEnterARButton" href="#"></a>
 <!--       <a-box color="#EF2D5E" height="0.2" width="0.2" depth="0.2" position="0 1 -1" change-color-on-hover="color: blue"></a-box> -->
       
       <a-text id="mainMenu" value="Menu" align="center" color="#fff" visible="true" position="-1 2 -2"
@@ -53,7 +56,7 @@
             animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
             animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
             cursor="fuse: true;"
-            material="color: red; shader: flat"
+            material="color: green; shader: flat"
             position="0 0 -3"
             geometry="primitive: ring; radiusInner: 0.05; radiusOuter: 0.08"></a-entity>
         </a-entity>
