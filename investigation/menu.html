@@ -29,19 +29,17 @@
     </script>
   </head>
   <body>
-    <a-scene  vr-mode-ui="enterVRButton: #myEnterVRButton; enterARButton: #myEnterARButton">
+    <a-scene  vr-mode-ui="true">
       <!-- Style the button with images or whatever. -->
-      <a id="myEnterVRButton" href="#"></a>
-      <a id="myEnterARButton" href="#"></a>
 <!--       <a-box color="#EF2D5E" height="0.2" width="0.2" depth="0.2" position="0 1 -1" change-color-on-hover="color: blue"></a-box> -->
       
       <a-text id="mainMenu" value="Menu" align="center" color="#fff" visible="true" position="-1 2 -2"
                 geometry="primitive: plane; width: 1.0; height: 0.3" material="color: #009900"
-                change-color-on-hover="color: #006600" scale="1.5 1.5 1.5"></a-text>
+                change-color-on-hover="color: #006600"></a-text>
       
       <a-text id="cursorMenu" value="Cursor" align="center" color="#FFF" visible="false" position="-0.75 1.65 -2"
                 geometry="primitive: plane; width: 1.0; height: 0.3" material="color: #009900"
-                change-color-on-hover="color: #006600"  scale="1.5 1.5 1.5"></a-text>
+                change-color-on-hover="color: #006600"></a-text>
       <a-text id="exitMenu" value="x" height="4" width="4" align="center" color="red" visible="false" position="-0.25 1.85 -1.99"
                 geometry="primitive: plane; width: 0.15; height: 0.15" material="color: #009900"
                 change-color-on-hover="color: #006600"></a-text>
@@ -56,7 +54,7 @@
             animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
             animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
             cursor="fuse: true;"
-            material="color: red; shader: flat"
+            material="color: blue; shader: flat"
             position="0 0 -3"
             geometry="primitive: ring; radiusInner: 0.05; radiusOuter: 0.08"></a-entity>
         </a-entity>
@@ -111,7 +109,8 @@
         
         if (!colorTextsCreated) {
           let nCols = 4;
-          let colorLength = 0.4
+          let colorHeight = 0.25
+          let colorWidth = 0.35
           let posx = -0.25
           let posy = 1.45
           let posz = -1.99
@@ -136,13 +135,13 @@
               colorText.setAttribute("color", "white");
             }
 
-            let x = posx + (colorLength+0.1)*row;
-            let y = posy - colorLength*col;
+            let x = posx + colorWidth*row;
+            let y = posy - colorHeight*col;
             colorText.setAttribute("position", x.toString() + " " + y.toString() + " " + posz.toString());
             colorText.setAttribute("height", "1");
             colorText.setAttribute("width", "1");
             colorText.setAttribute("wrap-count", "25");
-            colorText.setAttribute("geometry","primitive: plane; width: 0.3; height: 0.25");
+            colorText.setAttribute("geometry","primitive: plane; width: " + colorWidth.toString() + "; height: " + colorHeight.toString());
             colorText.setAttribute("material", "color: ".concat(colors[name]));
 
 
