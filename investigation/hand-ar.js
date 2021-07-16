@@ -27,13 +27,13 @@ function cameraStart() {
         .getUserMedia(constraints)
         .then(function(stream) {
         cameraView.srcObject = stream;
-        video.onloadedmetadata = () => {
+        cameraView.onloadedmetadata = () => {
             // video.height = video.width * (video.videoHeight / video.videoWidth); //* (3 / 4);
             // video.style.height =
             //   parseInt(video.style.width) *
             //     (video.videoHeight / video.videoWidth).toFixed(2) +
             //   "px";
-            video.play();
+            cameraView.play();
             runDetection();
           };
     })
