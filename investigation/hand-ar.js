@@ -1,6 +1,6 @@
 var cameraView;
 
-
+let model = null;
 const modelParams = {
     flipHorizontal: true,   // flip e.g for video  
     maxNumBoxes: 20,        // maximum number of boxes to detect
