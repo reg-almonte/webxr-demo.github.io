@@ -4,7 +4,7 @@
     <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
     <style>   
         #webcam {
-            opacity:0.4;
+            opacity:1.0;
             position: fixed;
             background-size: 100% 100%;
             top: 0; left: 0; 
@@ -54,18 +54,24 @@
 </head>
 <body>
     <video id="webcam" autoplay playsinline></video>
-    <a-scene vr-mode-ui="enabled: false">
+    <a-scene vr-mode-ui="enabled: true">
         <a-sphere cursor-listener position="-7 0 7" radius="1.25" color="yellowgreen"></a-sphere>
         <a-sphere cursor-listener position="-7 0 -7" radius="1.25" color="green"></a-sphere>
         <a-sphere cursor-listener position="7 0 7" radius="1.25" color="aqua"></a-sphere>
         <a-sphere cursor-listener position="7 0 -7" radius="1.25" color="orange"></a-sphere>
-        <a-entity camera look-controls>
-            <a-entity cursor="fuse: true; fuseTimeout: 500"
-                position="0 0 -0.6"
-                geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
-                material="color: blue; shader: flat">
+        <a-entity position="0 1.6 3">
+            <a-entity camera look-controls>
+                <a-entity
+                id="cursor"
+                animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
+                animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 500; from: 1 1 1; to: 0.1 0.1 0.1"
+                animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
+                cursor="fuse: true;"
+                material="color: red;"
+                position="0 0 -3"
+                geometry="primitive: ring; radiusInner: 0.03; radiusOuter: 0.06;"></a-entity>
             </a-entity>
-        </a-entity>
+          </a-entity>
     </a-scene>
 </body>
 </html>
