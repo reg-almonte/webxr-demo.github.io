@@ -1,4 +1,6 @@
 var cameraView;
+const canvas = document.getElementById("canvas");
+const context = canvas.getContext("2d");
 
 let model = null;
 const modelParams = {
@@ -28,6 +30,16 @@ function cameraStart() {
     });
 }
 
+function runDetection() {
+    model.detect(cameraView).then(predictions => {
+        console.log("Predictions: ", predictions);
+        model.renderPredictions(predictions, canvas, context, cameraView);
+        //if (isVideo) {
+        requestAnimationFrame(runDetection);
+        //}
+    });
+}
+
 // Start the video stream when the window loads
 // window.addEventListener("load", cameraStart, false);
 
@@ -37,7 +49,7 @@ handTrack.load(modelParams).then(lmodel => {
     // detect objects in the image.
     model = lmodel
     // updateNote.innerText = "Loaded Model!"
-    window.alert("Loaded model");
+    // window.alert("Loaded model");
     //trackButton.disabled = false
     cameraStart();
 });
