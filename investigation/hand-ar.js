@@ -1,8 +1,11 @@
-var cameraView;
+const cameraView = document.getElementById("webcam");
 const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
 
+
+let isVideo = false;
 let model = null;
+
 const modelParams = {
     flipHorizontal: true,   // flip e.g for video  
     maxNumBoxes: 20,        // maximum number of boxes to detect
@@ -18,16 +21,29 @@ var constraints = {
 };
 
 // Access the device camera and stream to cameraView
-function cameraStart() {
-    cameraView = document.querySelector("#webcam");
-    navigator.mediaDevices
-        .getUserMedia(constraints)
-        .then(function(stream) {
-        cameraView.srcObject = stream;
-        runDetection();
-    })
-    .catch(function(error) {
-        console.error("Oops. Something is broken.", error);
+// function cameraStart() {
+//     cameraView = document.querySelector("#webcam");
+//     navigator.mediaDevices
+//         .getUserMedia(constraints)
+//         .then(function(stream) {
+//         cameraView.srcObject = stream;
+//         runDetection();
+//     })
+//     .catch(function(error) {
+//         console.error("Oops. Something is broken.", error);
+//     });
+// }
+
+function startVideo() {
+    handTrack.startVideo(video).then(function (status) {
+        console.log("video started", status);
+        if (status) {
+            //updateNote.innerText = "Video started. Now tracking"
+            isVideo = true
+            runDetection()
+        } else {
+            console.log("Video is not loaded");
+        }
     });
 }
 
@@ -35,9 +51,9 @@ function runDetection() {
     model.detect(cameraView).then(predictions => {
         console.log("Predictions: ", predictions);
         model.renderPredictions(predictions, canvas, context, cameraView);
-        //if (isVideo) {
-        requestAnimationFrame(runDetection);
-        //}
+        if (isVideo) {
+            requestAnimationFrame(runDetection);
+        }
     });
 }
 
@@ -52,5 +68,5 @@ handTrack.load(modelParams).then(lmodel => {
     // updateNote.innerText = "Loaded Model!"
     // window.alert("Loaded model");
     //trackButton.disabled = false
-    cameraStart();
+    startVideo();
 });
