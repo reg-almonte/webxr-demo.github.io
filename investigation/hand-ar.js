@@ -21,4 +21,15 @@ function cameraStart() {
 }
 
 // Start the video stream when the window loads
-window.addEventListener("load", cameraStart, false);
+// window.addEventListener("load", cameraStart, false);
+
+
+// Load the model.
+handTrack.load(modelParams).then(lmodel => {
+    // detect objects in the image.
+    model = lmodel
+    // updateNote.innerText = "Loaded Model!"
+    window.alert("Loaded model");
+    //trackButton.disabled = false
+    cameraStart();
+});
