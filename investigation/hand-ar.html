@@ -13,31 +13,6 @@
         }
     </style>
     <script>
-        var cameraView;
-
-        var constraints = {
-            audio: false,
-            video: {
-                facingMode: "environment",
-            }
-        };
-
-        // Access the device camera and stream to cameraView
-        function cameraStart() {
-            cameraView = document.querySelector("#webcam");
-            navigator.mediaDevices
-                .getUserMedia(constraints)
-                .then(function(stream) {
-                cameraView.srcObject = stream;
-            })
-            .catch(function(error) {
-                console.error("Oops. Something is broken.", error);
-            });
-        }
-
-        // Start the video stream when the window loads
-        window.addEventListener("load", cameraStart, false);
-
         // Component to change to a sequential color on cursor suspension.
         AFRAME.registerComponent('cursor-listener', {
           init: function () {
@@ -89,10 +64,13 @@
             animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 500; from: 1 1 1; to: 0.1 0.1 0.1"
             animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
             cursor="fuse: true;"
-            material="color: green;"
+            material="color: blue;"
             position="0 0 -0.6"
-            geometry="primitive: ring; radiusInner: 0.03; radiusOuter: 0.06;"></a-entity>
+            geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03;"></a-entity>
         </a-entity>
     </a-scene>
+
+    <script src="https://cdn.jsdelivr.net/npm/handtrackjs/dist/handtrack.min.js"> </script>
+    <script src="hand-ar.js"></script>
 </body>
 </html>
