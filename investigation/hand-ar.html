@@ -83,11 +83,15 @@
         <a-sphere cursor-listener position="7 0 7" radius="1.25" color="aqua"></a-sphere>
         <a-sphere cursor-listener position="7 0 -7" radius="1.25" color="orange"></a-sphere>
         <a-entity camera look-controls>
-            <a-entity cursor="fuse: true; fuseTimeout: 500"
-                position="0 0.1 -0.6"
-                geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
-                material="color: green; shader: flat">
-            </a-entity>
+            <a-entity
+            id="cursor"
+            animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
+            animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 500; from: 1 1 1; to: 0.1 0.1 0.1"
+            animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
+            cursor="fuse: true;"
+            material="color: red;"
+            position="0 0 -3"
+            geometry="primitive: ring; radiusInner: 0.03; radiusOuter: 0.06;"></a-entity>
         </a-entity>
     </a-scene>
 </body>
