@@ -24,6 +24,7 @@ function cameraStart() {
         .getUserMedia(constraints)
         .then(function(stream) {
         cameraView.srcObject = stream;
+        runDetection();
     })
     .catch(function(error) {
         console.error("Oops. Something is broken.", error);
