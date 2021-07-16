@@ -1,5 +1,5 @@
 const cameraView = document.getElementById("webcam");
-const canvas = document.getElementById("canvas");
+// const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
 
 
