@@ -71,5 +71,5 @@ handTrack.load(modelParams).then(lmodel => {
     // window.alert("Loaded model");
     //trackButton.disabled = false
     console.log("Starting video in 1 sec.");
-    sleep(1000).then(() => {startVideo(); });
+    sleep(1000).then(() => {cameraStart(); });
 });
