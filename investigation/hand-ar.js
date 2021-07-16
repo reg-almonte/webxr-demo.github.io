@@ -50,7 +50,7 @@ function cameraStart() {
 function runDetection() {
     model.detect(cameraView).then(predictions => {
         console.log("Predictions: ", predictions);
-        model.renderPredictions(predictions, canvas, context, cameraView);
+        // model.renderPredictions(predictions, canvas, context, cameraView);
         if (isVideo) {
             requestAnimationFrame(runDetection);
         }
