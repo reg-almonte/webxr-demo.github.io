@@ -50,11 +50,34 @@
             });
           }
         });
+
+        AFRAME.registerComponent('change-color-on-hover', {
+        schema: {
+        color: {default: 'red'}
+        },
+
+        init: function () {
+        var data = this.data;
+        var el = this.el;  // <a-box>
+        var defaultColor = el.getAttribute('material').color;
+
+        el.addEventListener('mouseenter', function () {
+            el.setAttribute("material","color: " + data.color.toString());
+        });
+
+        el.addEventListener('mouseleave', function () {
+            el.setAttribute("material","color: " + defaultColor.toString());
+        });
+        }
+    });
     </script>      
 </head>
 <body>
     <video id="webcam" autoplay playsinline></video>
     <a-scene vr-mode-ui="enabled: true">
+        <a-text id="mainMenu" value="Menu" align="center" color="#fff" visible="true" position="-1 2 -2"
+                geometry="primitive: plane; width: 1.0; height: 0.3" material="color: #009900"
+                change-color-on-hover="color: #006600"></a-text>
         <a-sphere cursor-listener position="-7 0 7" radius="1.25" color="yellowgreen"></a-sphere>
         <a-sphere cursor-listener position="-7 0 -7" radius="1.25" color="green"></a-sphere>
         <a-sphere cursor-listener position="7 0 7" radius="1.25" color="aqua"></a-sphere>
@@ -63,7 +86,7 @@
             <a-entity cursor="fuse: true; fuseTimeout: 500"
                 position="0 0.1 -0.6"
                 geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
-                material="color: blue; shader: flat">
+                material="color: red; shader: flat">
             </a-entity>
         </a-entity>
     </a-scene>
