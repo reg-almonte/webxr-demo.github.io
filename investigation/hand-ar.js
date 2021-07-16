@@ -33,9 +33,9 @@ function cameraStart() {
             //   parseInt(video.style.width) *
             //     (video.videoHeight / video.videoWidth).toFixed(2) +
             //   "px";
-            cameraView.play();
-            runDetection();
+            cameraView.play();            
             isVideo = true;
+            runDetection();
           };
     })
     .catch(function(error) {
