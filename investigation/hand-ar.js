@@ -35,7 +35,7 @@ var constraints = {
 // }
 
 function startVideo() {
-    handTrack.startVideo(video).then(function (status) {
+    handTrack.startVideo(cameraView).then(function (status) {
         console.log("video started", status);
         if (status) {
             //updateNote.innerText = "Video started. Now tracking"
@@ -59,7 +59,9 @@ function runDetection() {
 
 // Start the video stream when the window loads
 // window.addEventListener("load", cameraStart, false);
-
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 // Load the model.
 handTrack.load(modelParams).then(lmodel => {
@@ -68,5 +70,6 @@ handTrack.load(modelParams).then(lmodel => {
     // updateNote.innerText = "Loaded Model!"
     // window.alert("Loaded model");
     //trackButton.disabled = false
-    startVideo();
+    console.log("Starting video in 1 sec.");
+    sleep(1000).then(() => {startVideo(); });
 });
