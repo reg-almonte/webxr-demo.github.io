@@ -35,6 +35,7 @@ function cameraStart() {
             //   "px";
             cameraView.play();
             runDetection();
+            isVideo = true;
           };
     })
     .catch(function(error) {
