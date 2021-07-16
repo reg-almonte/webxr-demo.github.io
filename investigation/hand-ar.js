@@ -21,31 +21,31 @@ var constraints = {
 };
 
 // Access the device camera and stream to cameraView
-function cameraStart() {
-    // cameraView = document.querySelector("#webcam");
-    navigator.mediaDevices
-        .getUserMedia(constraints)
-        .then(function(stream) {
-        cameraView.srcObject = stream;
-        runDetection();
-    })
-    .catch(function(error) {
-        console.error("Oops. Something is broken.", error);
-    });
-}
-
-// function startVideo() {
-//     handTrack.startVideo(cameraView).then(function (status) {
-//         console.log("video started", status);
-//         if (status) {
-//             //updateNote.innerText = "Video started. Now tracking"
-//             isVideo = true
-//             runDetection()
-//         } else {
-//             console.log("Video is not loaded");
-//         }
+// function cameraStart() {
+//     // cameraView = document.querySelector("#webcam");
+//     navigator.mediaDevices
+//         .getUserMedia(constraints)
+//         .then(function(stream) {
+//         cameraView.srcObject = stream;
+//         runDetection();
+//     })
+//     .catch(function(error) {
+//         console.error("Oops. Something is broken.", error);
 //     });
 // }
+
+function startVideo() {
+    handTrack.startVideo(cameraView).then(function (status) {
+        console.log("video started", status);
+        if (status) {
+            //updateNote.innerText = "Video started. Now tracking"
+            isVideo = true
+            runDetection()
+        } else {
+            console.log("Video is not loaded");
+        }
+    });
+}
 
 function runDetection() {
     model.detect(cameraView).then(predictions => {
@@ -71,5 +71,5 @@ handTrack.load(modelParams).then(lmodel => {
     // window.alert("Loaded model");
     //trackButton.disabled = false
     console.log("Starting video in 1 sec.");
-    sleep(1000).then(() => {cameraStart(); });
+    sleep(1000).then(() => {startVideo(); });
 });
