@@ -22,7 +22,7 @@ var constraints = {
 
 // Access the device camera and stream to cameraView
 function cameraStart() {
-    cameraView = document.querySelector("#webcam");
+    // cameraView = document.querySelector("#webcam");
     navigator.mediaDevices
         .getUserMedia(constraints)
         .then(function(stream) {
