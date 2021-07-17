@@ -21,40 +21,45 @@ var constraints = {
 };
 
 // Access the device camera and stream to cameraView
-// function cameraStart() {
-//     // cameraView = document.querySelector("#webcam");
-//     navigator.mediaDevices
-//         .getUserMedia(constraints)
-//         .then(function(stream) {
-//         cameraView.srcObject = stream;
-//         cameraView.onloadedmetadata = () => {
-//             // video.height = video.width * (video.videoHeight / video.videoWidth); //* (3 / 4);
-//             // video.style.height =
-//             //   parseInt(video.style.width) *
-//             //     (video.videoHeight / video.videoWidth).toFixed(2) +
-//             //   "px";
-//             cameraView.play();            
-//             isVideo = true;
-//             runDetection();
-//           };
-//     })
-//     .catch(function(error) {
-//         console.error("Oops. Something is broken.", error);
-//     });
-// }
+function cameraStart(video) {
+    // cameraView = document.querySelector("#webcam");
 
-function startVideo() {
-    handTrack.startVideo(cameraView).then(function (status) {
-        console.log("video started", status);
-        if (status) {
-            updateNote.innerText = "Video started. Now tracking"
-            isVideo = true
-            runDetection()
-        } else {
-            console.log("Video is not loaded");
-        }
+    video.width = video.width || 640;
+    video.height = video.width * (video.videoHeight / video.videoWidth); //* (3 / 4);
+    video.style.height = "20px";
+
+    navigator.mediaDevices
+        .getUserMedia(constraints)
+        .then(function(stream) {
+            video.srcObject = stream;
+            video.onloadedmetadata = () => {
+            video.height = video.width * (video.videoHeight / video.videoWidth); //* (3 / 4);
+            video.style.height =
+              parseInt(video.style.width) *
+                (video.videoHeight / video.videoWidth).toFixed(2) +
+              "px";
+            video.play();            
+            isVideo = true;
+            runDetection();
+          };
+    })
+    .catch(function(error) {
+        console.error("Oops. Something is broken.", error);
     });
 }
+
+// function startVideo() {
+//     handTrack.startVideo(cameraView).then(function (status) {
+//         console.log("video started", status);
+//         if (status) {
+//             updateNote.innerText = "Video started. Now tracking"
+//             isVideo = true
+//             runDetection()
+//         } else {
+//             console.log("Video is not loaded");
+//         }
+//     });
+// }
 
 function runDetection() {
     model.detect(cameraView).then(predictions => {
@@ -87,5 +92,5 @@ handTrack.load(modelParams).then(lmodel => {
     // window.alert("Loaded model");
     //trackButton.disabled = false
     console.log("Starting video in 0.5 sec.");
-    sleep(500).then(() => {startVideo(); });
+    sleep(500).then(() => {cameraStart(cameraView); });
 });
