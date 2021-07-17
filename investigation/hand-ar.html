@@ -49,6 +49,7 @@
 </head>
 <body>
     <video id="webcam" autoplay playsinline></video>
+    <div id="updatenote" class="updatenote mt10"> loading model ..</div>
     <!-- <canvas id="canvas" class="border canvasbox"></canvas> -->
     <a-scene vr-mode-ui="enabled: true">
         <a-text id="mainMenu" value="Menu" align="center" color="#fff" visible="true" position="-1 2 -2"
@@ -65,7 +66,7 @@
             animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 500; from: 1 1 1; to: 0.1 0.1 0.1"
             animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
             cursor="fuse: true;"
-            material="color: green;"
+            material="color: red;"
             position="0 0 -0.6"
             geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03;"></a-entity>
         </a-entity>
