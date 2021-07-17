@@ -1,7 +1,7 @@
 const cameraView = document.getElementById("webcam");
 // const canvas = document.getElementById("canvas");
 // const context = canvas.getContext("2d");
-let updateNote = document.getElementById("updatenote");
+let updateNote = document.querySelector("#updatenote"); //document.getElementById("updatenote");
 
 let isVideo = false;
 let model = null;
@@ -71,7 +71,8 @@ function runDetection() {
           str += predictions[i].label + ' (' + Math.round(box[0] * 100) / 100 + ',' + Math.round(box[1] * 100) / 100 + ') \n';
           // console.log("Predictions: ", predictions[i].class);
         }
-        updateNote.innerText = str;
+        //updateNote.innerText = str;
+       updateNote.setAttribute("value", str);
         if (isVideo) {
             requestAnimationFrame(runDetection);
         }
@@ -88,7 +89,8 @@ function sleep(ms) {
 handTrack.load(modelParams).then(lmodel => {
     // detect objects in the image.
     model = lmodel
-    updateNote.innerText = "Starting video in 0.5 sec."
+    //updateNote.innerText = "Starting video in 0.5 sec."
+    updateNote.setAttribute("value", "Starting video in 0.5 sec.");
     // window.alert("Loaded model");
     //trackButton.disabled = false
     console.log("Starting video in 0.5 sec.");
