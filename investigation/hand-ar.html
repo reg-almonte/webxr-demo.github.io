@@ -49,11 +49,13 @@
     </script>      
 </head>
 <body>
-    
-    <video id="webcam" autoplay playsinline></video>
+    <a-assets>
+        <video id="webcam" autoplay playsinline></video>
+    </a-assets>
 <!--     <div id="updatenote" class="updatenote mt10"> loading model ..</div> -->
     <!-- <canvas id="canvas" class="border canvasbox"></canvas> -->
     <a-scene vr-mode-ui="enabled: true">
+        <a-video src="#webcam" width="4" height="3" position="0 0 -2"></a-video>
         <a-text id="updatenote" value="Loading Model..." height="1" width="3" align="center" color="#fff" visible="true" position="-1 1.0 -2"
                 geometry="primitive: plane; width: 1.7; height: 0.7" material="color: #009900"
                 change-color-on-hover="color: #006600"></a-text>
@@ -70,8 +72,10 @@
             cursor="fuse: true;"
             material="color: red;"
             position="0 0 -0.6"
-            geometry="primitive: circle; radius: 0.03;"></a-entity>
+            geometry="primitive: circle; radius: 0.0;"></a-entity>
         </a-entity>
+        <a-entity line="start: 0 1 0; end: 2 0 -5; color: red"
+          line__2="start: -2 4 5; end: 0 4 -3; color: green"></a-entity>
     </a-scene>
     
     <script src="https://unpkg.com/carbon-components@latest/scripts/carbon-components.js"></script>

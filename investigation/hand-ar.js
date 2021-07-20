@@ -69,7 +69,6 @@ function runDetection() {
         for (var i = 0; i < predictions.length; i++) {
           var box = predictions[i].bbox;
           str += predictions[i].label + ' (' + Math.round(box[0] * 100) / 100 + ',' + Math.round(box[1] * 100) / 100 + ') \n';
-          // console.log("Predictions: ", predictions[i].class);
         }
         //updateNote.innerText = str;
        updateNote.setAttribute("value", str);
