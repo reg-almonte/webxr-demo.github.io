@@ -26,7 +26,7 @@ function cameraStart(video) {
 
     video.width = video.width || 640;
     video.height = video.width * (video.videoHeight / video.videoWidth); //* (3 / 4);
-    video.style.height = "20px";
+    // video.style.height = "20px";
 
     navigator.mediaDevices
         .getUserMedia(constraints)
