@@ -56,8 +56,8 @@
     <!-- <canvas id="canvas" class="border canvasbox"></canvas> -->
     <a-scene vr-mode-ui="enabled: true">
         <a-video src="#webcam" width="4" height="3" position="0 0 -2"></a-video>
-        <a-text id="updatenote" value="Loading Model..." height="1" width="3" align="left" color="#000" visible="true" position="-2.5 1.5 -2"
-                geometry="primitive: plane; width: 1.7; height: 0.7" material="opacity: 0.0; color: #009900"
+        <a-text id="updatenote" value="Loading Model..." height="1" width="3" align="left" color="#000" visible="false" position="-2.5 1.5 -2"
+                geometry="primitive: plane; width: 1.7; height: 0.7" material="opacity: 1.0; color: #009900"
                 change-color-on-hover="color: #006600"></a-text>
         <a-sphere cursor-listener position="-7 0 7" radius="1.25" color="yellowgreen"></a-sphere>
         <a-sphere cursor-listener position="-7 0 -7" radius="1.25" color="green"></a-sphere>
@@ -73,9 +73,10 @@
             material="color: red;"
             position="0 0 -0.6"
             geometry="primitive: circle; radius: 0.0;"></a-entity>
+            <a-entity line="start: -0.1 0.0 -1.0; end: 0.1 0 -1.0; color: red"
+            line__2="start: 0.0 0.1 -1.0; end: 0.0 -0.1 -1.0; color: red"></a-entity>
         </a-entity>
-        <a-entity line="start: -0.1 0.0 -1.0; end: 0.1 0 -1.0; color: red"
-          line__2="start: 0.0 0.1 -1.0; end: 0.0 -0.1 -1.0; color: red"></a-entity>
+        
     </a-scene>
     
     <script src="https://unpkg.com/carbon-components@latest/scripts/carbon-components.js"></script>
