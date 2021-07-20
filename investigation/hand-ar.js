@@ -71,7 +71,7 @@ function runDetection() {
           str += predictions[i].label + ' (' + Math.round(box[0] * 100) / 100 + ',' + Math.round(box[1] * 100) / 100 + ') \n';
         }
         //updateNote.innerText = str;
-        if (str != '') {
+        if (predictions.length != 0) {
             updatenote.setAttribute("visible", "true");
             updateNote.setAttribute("value", str);
         } else {
