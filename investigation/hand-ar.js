@@ -68,7 +68,8 @@ function runDetection() {
         var str = ''
         for (var i = 0; i < predictions.length; i++) {
           var box = predictions[i].bbox;
-          str += predictions[i].label + ' (' + Math.round(box[0] * 100) / 100 + ',' + Math.round(box[1] * 100) / 100 + ') \n';
+          str += predictions[i].label + ' (' + (Math.round(box[0] + box[2]) * 100) / 200 + ',' + 
+          (Math.round(box[1] + box[3]) * 100) / 200 + ') \n';
         }
         //updateNote.innerText = str;
         if (predictions.length != 0) {
