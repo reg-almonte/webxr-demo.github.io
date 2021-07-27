@@ -36,8 +36,8 @@ camera.position.z = 5;
 
 // Creating cursor object
 const ringGeom = new THREE.RingGeometry( 1, 5, 32 );
-const material = new THREE.MeshBasicMaterial( { color: 0xffff00, side: THREE.DoubleSide } );
-const ring = new THREE.Mesh( ringGeom, material );
+const material2 = new THREE.MeshBasicMaterial( { color: 0xffff00, side: THREE.DoubleSide } );
+const ring = new THREE.Mesh( ringGeom, material2 );
 scene.add( ring );
 
 // Creating Canavs for video Input
