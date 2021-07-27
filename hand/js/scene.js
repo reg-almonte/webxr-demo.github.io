@@ -102,7 +102,7 @@ function runDetection() {
     // if (predictions.length > 0) {
     //   changeData(predictions[0].bbox);
     // }
-    document.querySelector(".hand-1 #hand-x span").innerHTML = "-";
+    document.querySelector(".hand-1 #pred-label span").innerHTML = "-";
     for (let i = 0; i < predictions.length; i++) {
       if (predictions[i].label != "face") {
         changeData(predictions[i].bbox);
@@ -132,7 +132,7 @@ function moveTheRing(value) {
 
   var raycaster = new THREE.Raycaster();
   raycaster.setFromCamera( ring, camera );               
-  var intersects = raycaster.intersectObjects( cube );
+  var intersects = raycaster.intersectObjects( scene.children );
   if(intersects.length != 0)
   {
     document.querySelector(".hand-1 #pred-label span").innerHTML = "intersects!";
