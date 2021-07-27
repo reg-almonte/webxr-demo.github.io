@@ -104,7 +104,7 @@ function runDetection() {
     // }
     for (let i = 0; i < predictions.length; i++) {
       if (predictions[i].label != "face") {
-        changeData(predictions[0].bbox);
+        changeData(predictions[i].bbox);
         break;
       }
     }
