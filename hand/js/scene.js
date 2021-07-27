@@ -140,13 +140,10 @@ function moveTheRing(value) {
 
 	for ( let i = 0; i < intersects.length; i ++ ) {
 		intersects[ i ].object.material.color.set( 0xff0000 );
-    scene.children[ 0 ].material.color.set( 0xff00ff );
 	}
-  // if(intersects.length == 0) {
-  //   for ( let i = 0; i < scene.children.length; i ++ ) {
-  //     scene.children[ i ].material.color.set( 0xff00ff );
-  //   }
-  // }
+  if(intersects.length == 0) {
+    scene.children[ i ].material.color.set( 0x9999FF );
+  }
   // var intersects = raycaster.intersectObjects( scene.children );
   // if(intersects.length != 0)
   // {
