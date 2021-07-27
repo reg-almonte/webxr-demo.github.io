@@ -25,14 +25,14 @@ scene.add(cube);
 camera.position.z = 5;
 
 // Optional animation to rotate the element
-// var animate = function() {
-//   requestAnimationFrame(animate);
-//   cube.rotation.x += 0.01;
-//   cube.rotation.y += 0.01;
-//   renderer.render(scene, camera);
-// };
+var animate = function() {
+  requestAnimationFrame(animate);
+  cube.rotation.x += 0.01;
+  cube.rotation.y += 0.01;
+  renderer.render(scene, camera);
+};
 
-// animate();
+animate();
 
 // Creating cursor object
 const ringGeom = new THREE.RingGeometry( 1, 0.5, 0.8 );
