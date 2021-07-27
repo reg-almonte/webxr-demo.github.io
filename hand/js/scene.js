@@ -99,15 +99,15 @@ function runDetection() {
     if (isVideo) {
       requestAnimationFrame(runDetection);
     }
-    if (predictions.length > 0) {
-      changeData(predictions[0].bbox);
-    }
-    // for (let i = 0; i < predictions.length; i++) {
-    //   if (predictions[i].label != "face") {
-    //     changeData(predictions[i].bbox);
-    //     break;
-    //   }
+    // if (predictions.length > 0) {
+    //   changeData(predictions[0].bbox);
     // }
+    for (let i = 0; i < predictions.length; i++) {
+      if (predictions[i].label != "face") {
+        changeData(predictions[i].bbox);
+        break;
+      }
+    }
   });
 }
 
@@ -124,7 +124,7 @@ function changeData(value) {
 
 //Method to use prediction data to render cude accordingly
 function moveTheRing(value) {
-  ring.position.x = window.innerWidth * value.x; //((window.innerWidth * value.x) / window.innerWidth) * 5;
-  ring.position.y = -window.innerHeight * value.y; //-((window.innerHeight * value.y) / window.innerHeight) * 5;
+  ring.position.x = ((window.innerWidth * value.x) / window.innerWidth) * 5;
+  ring.position.y = -((window.innerHeight * value.y) / window.innerHeight) * 5;
   renderer.render(scene, camera);
 }
