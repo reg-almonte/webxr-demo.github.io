@@ -132,9 +132,14 @@ function moveTheRing(value) {
 
   var raycaster = new THREE.Raycaster();
   raycaster.setFromCamera( ring, camera );               
-  var intersects = raycaster.intersectObjects( scene.children );
-  if(intersects.length != 0)
-  {
-    document.querySelector(".hand-1 #pred-label span").innerHTML = "intersects!";
-  }
+  const intersects = raycaster.intersectObjects( scene.children );
+
+	for ( let i = 0; i < intersects.length; i ++ ) {
+		intersects[ i ].object.material.color.set( 0xff0000 );
+	}
+  // var intersects = raycaster.intersectObjects( scene.children );
+  // if(intersects.length != 0)
+  // {
+  //   document.querySelector(".hand-1 #pred-label span").innerHTML = "intersects!";
+  // }
 }
