@@ -99,15 +99,15 @@ function runDetection() {
     if (isVideo) {
       requestAnimationFrame(runDetection);
     }
-    // if (predictions.length > 0) {
-    //   changeData(predictions[0].bbox);
-    // }
-    for (let i = 0; i < predictions.length; i++) {
-      if (predictions[i].label != "face") {
-        changeData(predictions[i].bbox);
-        break;
-      }
+    if (predictions.length > 0) {
+      changeData(predictions[0].bbox);
     }
+    // for (let i = 0; i < predictions.length; i++) {
+    //   if (predictions[i].label != "face") {
+    //     changeData(predictions[i].bbox);
+    //     break;
+    //   }
+    // }
   });
 }
 
