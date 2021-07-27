@@ -113,12 +113,12 @@ function changeData(value) {
   document.querySelector(".hand-1 #hand-x span").innerHTML = midvalX;
   document.querySelector(".hand-1 #hand-y span").innerHTML = midvalY;
 
-  moveTheRing({ x: (midvalX - 300) / 600, y: (midvalY - 250) / 500 });
+  moveTheRing({ x: (midvalX - 0) / 600, y: (midvalY - 0) / 500 });
 }
 
 //Method to use prediction data to render cude accordingly
 function moveTheRing(value) {
-  ring.position.x = ((window.innerWidth * value.x) / window.innerWidth) * 10;
-  ring.position.y = -((window.innerHeight * value.y) / window.innerHeight) * 10;
+  ring.position.x = window.innerWidth * value.x; //((window.innerWidth * value.x) / window.innerWidth) * 10;
+  ring.position.y = -window.innerHeight * value.y; // -((window.innerHeight * value.y) / window.innerHeight) * 10;
   renderer.render(scene, camera);
 }
