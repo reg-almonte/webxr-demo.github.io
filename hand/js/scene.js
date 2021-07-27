@@ -124,14 +124,18 @@ function changeData(value) {
   moveTheRing({ x: (midvalX - 300) / 600, y: (midvalY - 250) / 500 });
 }
 
+const mouse = new THREE.Vector2();
+
 //Method to use prediction data to render cude accordingly
 function moveTheRing(value) {
   ring.position.x = ((window.innerWidth * value.x) / window.innerWidth) * 5;
   ring.position.y = -((window.innerHeight * value.y) / window.innerHeight) * 5;
+  mouse.x = ((window.innerWidth * value.x) / window.innerWidth) * 5;
+  mouse.y = -((window.innerHeight * value.y) / window.innerHeight) * 5;
   renderer.render(scene, camera);
 
   var raycaster = new THREE.Raycaster();
-  raycaster.setFromCamera( ring, camera );               
+  raycaster.setFromCamera( mouse, camera );               
   const intersects = raycaster.intersectObjects( scene.children );
 
 	for ( let i = 0; i < intersects.length; i ++ ) {
