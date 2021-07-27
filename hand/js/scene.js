@@ -35,7 +35,7 @@ camera.position.z = 5;
 // animate();
 
 // Creating cursor object
-const ringGeom = new THREE.RingGeometry( 1, 5, 32 );
+const ringGeom = new THREE.RingGeometry( 1, 0.5, 0.8 );
 const material2 = new THREE.MeshBasicMaterial( { color: 0xffff00, side: THREE.DoubleSide } );
 const ring = new THREE.Mesh( ringGeom, material2 );
 scene.add( ring );
