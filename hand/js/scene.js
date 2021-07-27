@@ -119,7 +119,7 @@ function changeData(value) {
   document.querySelector(".hand-1 #hand-x span").innerHTML = midvalX;
   document.querySelector(".hand-1 #hand-y span").innerHTML = midvalY;
 
-  moveTheRing({ x: (midvalX - 0) / 600, y: (midvalY - 0) / 500 });
+  moveTheRing({ x: (midvalX - 300) / 600, y: (midvalY - 250) / 500 });
 }
 
 //Method to use prediction data to render cude accordingly
