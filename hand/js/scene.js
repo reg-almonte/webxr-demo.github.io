@@ -103,7 +103,7 @@ function runDetection() {
     //   changeData(predictions[0].bbox);
     // }
     for (let i = 0; i < predictions.length; i++) {
-      if (predictions[i].class == "hand") {
+      if (predictions[i].label != "face") {
         changeData(predictions[0].bbox);
         break;
       }
