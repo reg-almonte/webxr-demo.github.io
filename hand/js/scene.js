@@ -129,4 +129,12 @@ function moveTheRing(value) {
   ring.position.x = ((window.innerWidth * value.x) / window.innerWidth) * 5;
   ring.position.y = -((window.innerHeight * value.y) / window.innerHeight) * 5;
   renderer.render(scene, camera);
+
+  var raycaster = new THREE.Raycaster();
+  raycaster.setFromCamera( ring, camera );               
+  var intersects = raycaster.intersectObjects( cube );
+  if(intersects.length != 0)
+  {
+    document.querySelector(".hand-1 #pred-label span").innerHTML = "intersects!";
+  }
 }
