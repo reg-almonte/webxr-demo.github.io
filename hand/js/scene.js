@@ -25,18 +25,18 @@ scene.add(cube);
 camera.position.z = 5;
 
 // Optional animation to rotate the element
-var animate = function() {
-  requestAnimationFrame(animate);
-  cube.rotation.x += 0.01;
-  cube.rotation.y += 0.01;
-  renderer.render(scene, camera);
-};
+// var animate = function() {
+//   requestAnimationFrame(animate);
+//   cube.rotation.x += 0.01;
+//   cube.rotation.y += 0.01;
+//   renderer.render(scene, camera);
+// };
 
-animate();
+// animate();
 
 // Creating cursor object
-const ringGeom = new THREE.RingGeometry( 1, 0.5, 0.8 );
-const material2 = new THREE.MeshBasicMaterial( { color: 0xffff00, side: THREE.DoubleSide } );
+const ringGeom = new THREE.RingGeometry( 0.5, 0.8, 64 );
+const material2 = new THREE.MeshBasicMaterial( { color: 0x00ffff, side: THREE.DoubleSide } );
 const ring = new THREE.Mesh( ringGeom, material2 );
 scene.add( ring );
 
