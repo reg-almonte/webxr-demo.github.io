@@ -14,7 +14,7 @@ document.body.appendChild(renderer.domElement);
 // Creating 3D object
 var geometry = new THREE.BoxGeometry(1, 2, 1);
 var material = new THREE.MeshBasicMaterial({
-  color: "rgb(222, 11, 221)",
+  color: 0x9999FF,
   wireframe: true,
   wireframeLinewidth: 1
 });
@@ -36,7 +36,7 @@ animate();
 
 // Creating cursor object
 const ringGeom = new THREE.RingGeometry( 0.05, 0.08, 32 );
-const material2 = new THREE.MeshBasicMaterial( { color: 0xffff00, side: THREE.DoubleSide } );
+const material2 = new THREE.MeshBasicMaterial( { color: 0x33CC33, side: THREE.DoubleSide } );
 const ring = new THREE.Mesh( ringGeom, material2 );
 scene.add( ring );
 
@@ -99,8 +99,14 @@ function runDetection() {
     if (isVideo) {
       requestAnimationFrame(runDetection);
     }
-    if (predictions.length > 0) {
-      changeData(predictions[0].bbox);
+    // if (predictions.length > 0) {
+    //   changeData(predictions[0].bbox);
+    // }
+    for (let i = 0; i < predictions.length; i++) {
+      if (predictions[i].class == "hand") {
+        changeData(predictions[0].bbox);
+        break;
+      }
     }
   });
 }
