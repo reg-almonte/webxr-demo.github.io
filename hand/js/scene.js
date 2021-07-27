@@ -25,14 +25,20 @@ scene.add(cube);
 camera.position.z = 5;
 
 // Optional animation to rotate the element
-var animate = function() {
-  requestAnimationFrame(animate);
-  cube.rotation.x += 0.01;
-  cube.rotation.y += 0.01;
-  renderer.render(scene, camera);
-};
+// var animate = function() {
+//   requestAnimationFrame(animate);
+//   cube.rotation.x += 0.01;
+//   cube.rotation.y += 0.01;
+//   renderer.render(scene, camera);
+// };
 
-animate();
+// animate();
+
+// Creating cursor object
+const ringGeom = new THREE.RingGeometry( 1, 5, 32 );
+const material = new THREE.MeshBasicMaterial( { color: 0xffff00, side: THREE.DoubleSide } );
+const ring = new THREE.Mesh( ringGeom, material );
+scene.add( ring );
 
 // Creating Canavs for video Input
 const video = document.getElementById("myvideo");
@@ -107,12 +113,12 @@ function changeData(value) {
   document.querySelector(".hand-1 #hand-x span").innerHTML = midvalX;
   document.querySelector(".hand-1 #hand-y span").innerHTML = midvalY;
 
-  moveTheBox({ x: (midvalX - 300) / 600, y: (midvalY - 250) / 500 });
+  moveTheRing({ x: (midvalX - 300) / 600, y: (midvalY - 250) / 500 });
 }
 
 //Method to use prediction data to render cude accordingly
-function moveTheBox(value) {
-  cube.position.x = ((window.innerWidth * value.x) / window.innerWidth) * 5;
-  cube.position.y = -((window.innerHeight * value.y) / window.innerHeight) * 5;
+function moveTheRing(value) {
+  ring.position.x = ((window.innerWidth * value.x) / window.innerWidth) * 5;
+  ring.position.y = -((window.innerHeight * value.y) / window.innerHeight) * 5;
   renderer.render(scene, camera);
 }
