@@ -137,6 +137,9 @@ function moveTheRing(value) {
 	for ( let i = 0; i < intersects.length; i ++ ) {
 		intersects[ i ].object.material.color.set( 0xff0000 );
 	}
+  if(intersects.length == 0) {
+    ring.material.color.set(0xff0000);
+  }
   // var intersects = raycaster.intersectObjects( scene.children );
   // if(intersects.length != 0)
   // {
