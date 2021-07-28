@@ -108,8 +108,8 @@ function moveTheRing(value) {
     // if(intersects.length == 0) {
     //   cube.material.color.set( 0x9999FF );
     // }
-    let newX = ((window.innerWidth * value.x) / window.innerWidth) * 5;
-    let newY = -((window.innerHeight * value.y) / window.innerHeight) * 5;
+    let newX = ((window.innerWidth * value.x) / window.innerWidth) * 2;
+    let newY = -((window.innerHeight * value.y) / window.innerHeight) * 2;
     cursor.setAttribute("position", newX + " " + newY + " -1.0");
 
   }
