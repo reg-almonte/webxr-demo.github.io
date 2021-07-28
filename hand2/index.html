@@ -10,8 +10,8 @@
     <script>
         AFRAME.registerComponent('collider-check', {        
             init: function () {
-                var defaultColor = el.getAttribute('color').toString();
                 var el = this.el;
+                var defaultColor = el.getAttribute('color').toString();                
                 el.addEventListener('raycaster-intersected', function (evt) {
                     el.setAttribute("color","red");
                 });
@@ -20,7 +20,6 @@
                     el.setAttribute("color", defaultColor);
                 });
             }
-
            
         });
     </script>
