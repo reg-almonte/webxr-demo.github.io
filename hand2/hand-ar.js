@@ -3,11 +3,13 @@ const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
 let trackButton = document.getElementById("trackbutton");
 let updateNote = document.querySelector("#updatenote");
-let cursor = document.createElement("a-ring");
+var scene = document.querySelector("a-scene");
+let cursor = document.createElement("a-box");
 cursor.setAttribute("radiusInner", "0.05");
 cursor.setAttribute("radiusOuter", "0.08");
-cursor.setAttribute("position", "0 2.6 -3");
+cursor.setAttribute("position", "-1 1.6 -3");
 cursor.setAttribute("color", "green");
+scene.appendChild(cursor);
 
 let isVideo = false;
 let model = null;
