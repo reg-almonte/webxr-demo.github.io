@@ -16,6 +16,13 @@
         <video id="myvideo"></video>
         <canvas id="canvas" class="border"></canvas>
         <div id="updatenote"><p style="color:blue">loading models</p></div>
+    </div>
+    <div class="data">  
+        <div class="hand-1">
+          <p id="pred-label">Label: <span>-</span></p>
+          <p id="hand-x">X: <span>0</span></p>
+          <p id="hand-y">Y: <span>0</span></p>
+        </div>
       </div>
     <a-scene 
         vr-mode-ui="enabled: true" 
@@ -25,7 +32,7 @@
     >
         <!-- <a-box color="#add8e6" depth="1" height="1" width="1.5"></a-box> -->
         <a-entity position="0 1.6 -3" rotation="1 1 1" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
-            <a-box color="#af8f00" depth="1" height="1.5" width="1"></a-box>
+            <a-box color="#a9a9a9" depth="1" height="1.5" width="1"></a-box>
         </a-entity>
         <!-- <a-box position="-1 1.6 -3" animation="property: position; to: -0.9 1.7 -3; dur: 1000; easing: linear; loop: true" color="#add8e6"></a-box> -->
     </a-scene>
