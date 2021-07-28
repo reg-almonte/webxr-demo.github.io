@@ -24,8 +24,21 @@ var constraints = {
     }
 };
 
+// Method to toggle a video
+function toggleVideo() {
+    if (!isVideo) {
+      updateNote.innerText = "Starting video";
+      startVideo(cameraView);
+    } else {
+      updateNote.innerText = "Stopping video";
+      handTrack.stopVideo(video);
+      isVideo = false;
+      updateNote.innerText = "Video stopped";
+    }
+  }
+
 // Access the device camera and stream to cameraView
-function cameraStart(video) {
+function startVideo(video) {
     // cameraView = document.querySelector("#webcam");
 
     video.width = video.width || 640;
@@ -113,8 +126,8 @@ function sleep(ms) {
 handTrack.load(modelParams).then(lmodel => {
     // detect objects in the image.
     model = lmodel
-    updateNote.innerText = "Starting video in 0.5 sec."
+    updateNote.innerText = "Loaded model!"
     // window.alert("Loaded model");
     //trackButton.disabled = false
-    sleep(500).then(() => {cameraStart(cameraView); });
+    //sleep(500).then(() => {cameraStart(cameraView); });
 });
