@@ -133,7 +133,7 @@ function moveTheRing(value) {
   renderer.render(scene, camera);
 
   mouse.x = ( value.x / window.innerWidth ) * 2 - 1;
-	mouse.y = - ( evalue.y / window.innerHeight ) * 2 + 1;
+	mouse.y = -( value.y / window.innerHeight ) * 2 + 1;
   var raycaster = new THREE.Raycaster();
   raycaster.setFromCamera( mouse, camera );               
   const intersects = raycaster.intersectObjects( cube );
