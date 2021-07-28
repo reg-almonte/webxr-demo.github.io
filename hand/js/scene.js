@@ -104,7 +104,7 @@ function runDetection() {
     for (let i = 0; i < predictions.length; i++) {
       if (predictions[i].label != "face") {
         changeData(predictions[i].bbox);
-        document.querySelector(".hand-1 #pred-label span").innerHTML = "hand";
+        document.querySelector(".hand-1 #pred-label span").innerHTML = predictions[i].label;
         break;
       }
     }
