@@ -6,9 +6,9 @@ let updateNote = document.querySelector("#updatenote");
 var scene = document.querySelector("a-scene");
 var camCursor = document.querySelector("#camera-cursor");
 let cursor = document.createElement("a-ring");
-cursor.setAttribute("radiusInner", "0.03");
-cursor.setAttribute("radiusOuter", "0.06");
-cursor.setAttribute("position", "0 0 -3.0");
+cursor.setAttribute("radius-inner", "0.03");
+cursor.setAttribute("radius-outer", "0.06");
+cursor.setAttribute("position", "0 0 -2.0");
 cursor.setAttribute("color", "green");
 camCursor.appendChild(cursor);
 
