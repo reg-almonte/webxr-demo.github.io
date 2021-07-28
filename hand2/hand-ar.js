@@ -1,12 +1,11 @@
-const cameraView = document.getElementById("webcam");
+const cameraView = document.getElementById("myvideo");
 const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
 let trackButton = document.getElementById("trackbutton");
 let updateNote = document.querySelector("#updatenote");
-let cursor = document.createElement("a-ring");
+const cursor = document.createElement("a-ring");
 cursor.setAttribute("radiusInner", "0.05");
-cursor.setAttribute("radiusOuter", "0.05");
-cursor.setAttribute("color", "red");
+cursor.setAttribute("radiusOuter", "0.08");
 
 let isVideo = false;
 let model = null;

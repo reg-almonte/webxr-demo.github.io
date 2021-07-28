@@ -9,9 +9,15 @@
   </head>
 
   <body>
-    <video id="webcam" hidden></video>
+    <!-- <video id="webcam" hidden></video>
     <canvas id="canvas" class="border canvasbox"></canvas>
-    <div id="updatenote" class="updatenote mt10">loading model ..</div>
+    <div id="updatenote" class="updatenote mt10">loading model ..</div> -->
+    <div class="tracker">
+        <video id="myvideo"></video>
+        <canvas id="canvas" class="border"></canvas>
+        <button id="trackbutton" disabled onclick="toggleVideo()">Button</button>
+        <div id="updatenote"><p style="color:blue">loading models</p></div>
+      </div>
     <a-scene 
         vr-mode-ui="enabled: true" 
         webxr="requiredFeatures: hit-test,local-floor;
@@ -20,7 +26,7 @@
     >
         <!-- <a-box color="#add8e6" depth="1" height="1" width="1.5"></a-box> -->
         <a-entity position="0 1.6 -3" rotation="0.5 0.5 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
-            <a-box color="#ff00ff" depth="1" height="1" width="1.5"></a-box>
+            <a-box color="#add8e6" depth="1" height="1" width="1.5"></a-box>
         </a-entity>
         <!-- <a-box position="-1 1.6 -3" animation="property: position; to: -0.9 1.7 -3; dur: 1000; easing: linear; loop: true" color="#add8e6"></a-box> -->
     </a-scene>
