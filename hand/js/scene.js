@@ -14,9 +14,7 @@ document.body.appendChild(renderer.domElement);
 // Creating 3D object
 var geometry = new THREE.BoxGeometry(1, 2, 1);
 var material = new THREE.MeshBasicMaterial({
-  color: 0x9999FF,
-  wireframe: true,
-  wireframeLinewidth: 1
+  color: 0x9999FF
 });
 
 var cube = new THREE.Mesh(geometry, material);
@@ -149,7 +147,7 @@ function moveTheRing(value) {
   // else {
   //   cube.object.material.color.set( 0xff0000 );
   // }
-  
+
   // var intersects = raycaster.intersectObjects( scene.children );
   // if(intersects.length != 0)
   // {
