@@ -4,7 +4,7 @@ const context = canvas.getContext("2d");
 let trackButton = document.getElementById("trackbutton");
 let updateNote = document.querySelector("#updatenote");
 var scene = document.querySelector("a-scene");
-var camCursor = document.querySelector("camera-cursor");
+var camCursor = document.querySelector("#camera-cursor");
 let cursor = document.createElement("a-ring");
 cursor.setAttribute("radiusInner", "0.03");
 cursor.setAttribute("radiusOuter", "0.06");
