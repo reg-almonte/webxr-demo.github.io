@@ -11,6 +11,12 @@ var renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
+// Creating cursor object
+const ringGeom = new THREE.RingGeometry( 0.05, 0.08, 32 );
+const material2 = new THREE.MeshBasicMaterial( { color: 0x33CC33, side: THREE.DoubleSide } );
+const ring = new THREE.Mesh( ringGeom, material2 );
+scene.add( ring );
+
 // Creating 3D object
 var geometry = new THREE.BoxGeometry(1, 2, 1);
 var material = new THREE.MeshBasicMaterial({
@@ -31,12 +37,6 @@ var animate = function() {
 };
 
 animate();
-
-// Creating cursor object
-const ringGeom = new THREE.RingGeometry( 0.05, 0.08, 32 );
-const material2 = new THREE.MeshBasicMaterial( { color: 0x33CC33, side: THREE.DoubleSide } );
-const ring = new THREE.Mesh( ringGeom, material2 );
-scene.add( ring );
 
 // Creating Canavs for video Input
 const video = document.getElementById("myvideo");
