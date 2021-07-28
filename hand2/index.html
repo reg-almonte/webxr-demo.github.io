@@ -15,7 +15,10 @@
 
     <a-scene vr-mode-ui="enabled: true">
         <!-- <a-box color="#add8e6" depth="1" height="1" width="1.5"></a-box> -->
-        <a-box position="-1 1.6 -3" animation="property: position; to: -0.9 1.7 -3; dur: 1000; easing: linear; loop: true" color="#add8e6"></a-box>
+        <a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
+            <a-box color="#00008b" depth="1" height="1" width="1.5"></a-box>
+        </a-entity>
+        <!-- <a-box position="-1 1.6 -3" animation="property: position; to: -0.9 1.7 -3; dur: 1000; easing: linear; loop: true" color="#add8e6"></a-box> -->
     </a-scene>
     <script src="https://cdn.jsdelivr.net/npm/handtrackjs/dist/handtrack.min.js"> </script>
     <script src="hand-ar.js"></script>
