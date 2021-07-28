@@ -136,7 +136,7 @@ function moveTheRing(value) {
 
   var raycaster = new THREE.Raycaster();
   raycaster.setFromCamera( mouse, camera );               
-  const intersects = raycaster.intersectObjects( scene.children );
+  const intersects = raycaster.intersectObjects( cube );
 
 	for ( let i = 0; i < intersects.length; i ++ ) {
 		intersects[ i ].object.material.color.set( 0xff0000 );
