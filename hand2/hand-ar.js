@@ -110,7 +110,7 @@ function moveTheRing(value) {
     // }
     let newX = ((window.innerWidth * value.x) / window.innerWidth) * 5;
     let newY = -((window.innerHeight * value.y) / window.innerHeight) * 5;
-    cursor.setAttribute("position", newX + " " + newY + " -2.0");
+    cursor.setAttribute("position", newX + " " + newY + " -1.0");
 
   }
 
