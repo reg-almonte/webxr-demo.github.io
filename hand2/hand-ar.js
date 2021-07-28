@@ -45,6 +45,7 @@ function cameraStart(video) {
             video.play();            
             isVideo = true;
             runDetection();
+            updateNote.innerText = "Started"
           };
     })
     .catch(function(error) {
@@ -112,10 +113,8 @@ function sleep(ms) {
 handTrack.load(modelParams).then(lmodel => {
     // detect objects in the image.
     model = lmodel
-    //updateNote.innerText = "Starting video in 0.5 sec."
-    updateNote.setAttribute("value", "Starting video in 0.5 sec.");
+    updateNote.innerText = "Starting video in 0.5 sec."
     // window.alert("Loaded model");
     //trackButton.disabled = false
-    console.log("Starting video in 0.5 sec.");
     sleep(500).then(() => {cameraStart(cameraView); });
 });

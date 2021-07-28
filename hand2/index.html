@@ -13,7 +13,8 @@
     <canvas id="canvas" class="border canvasbox"></canvas>
 
     <a-scene vr-mode-ui="enabled: true">
-        <a-box color="#add8e6" depth="1" height="1" width="1.5"></a-box>
+        <!-- <a-box color="#add8e6" depth="1" height="1" width="1.5"></a-box> -->
+        <a-box position="-1 1.6 -3" animation="property: position; to: 1 8 -3; dur: 2000; easing: linear; loop: true" color="tomato"></a-box>
     </a-scene>
     <script src="https://cdn.jsdelivr.net/npm/handtrackjs/dist/handtrack.min.js"> </script>
     <script src="hand-ar.js"></script>
