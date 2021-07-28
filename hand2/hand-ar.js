@@ -2,6 +2,7 @@ const cameraView = document.getElementById("myvideo");
 const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
 let trackButton = document.getElementById("trackbutton");
+let blueBox = document.getElementById("blue-box");
 let updateNote = document.querySelector("#updatenote");
 var scene = document.querySelector("a-scene");
 var camCursor = document.querySelector("#camera-cursor");
@@ -110,7 +111,7 @@ function moveTheRing(value) {
     // }
     let newX = ((window.innerWidth * value.x) / window.innerWidth) * 2;
     let newY = -((window.innerHeight * value.y) / window.innerHeight) * 2;
-    cursor.setAttribute("position", newX + " " + newY + " -1.0");
+    blueBox.setAttribute("position", newX + " " + newY + " -1.0");
 
   }
 
