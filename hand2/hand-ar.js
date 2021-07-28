@@ -90,24 +90,28 @@ function runDetection() {
 
 //Method to use prediction data to render cude accordingly
 function moveTheRing(value) {
-    ring.position.x = ((window.innerWidth * value.x) / window.innerWidth) * 5;
-    ring.position.y = -((window.innerHeight * value.y) / window.innerHeight) * 5;
-    renderer.render(scene, camera);
+    // ring.position.x = ((window.innerWidth * value.x) / window.innerWidth) * 5;
+    // ring.position.y = -((window.innerHeight * value.y) / window.innerHeight) * 5;
+    // renderer.render(scene, camera);
   
-    mouse.x = ((window.innerWidth * value.x) / window.innerWidth) * 5;
-      mouse.y = -((window.innerHeight * value.y) / window.innerHeight) * 5;
-    var raycaster = new THREE.Raycaster();
-    raycaster.setFromCamera( mouse, camera );               
+    // mouse.x = ((window.innerWidth * value.x) / window.innerWidth) * 5;
+    //   mouse.y = -((window.innerHeight * value.y) / window.innerHeight) * 5;
+    // var raycaster = new THREE.Raycaster();
+    // raycaster.setFromCamera( mouse, camera );               
   
-    const intersects = raycaster.intersectObjects( scene.children );
-      for ( let i = 0; i < intersects.length; i ++ ) {
-          intersects[ i ].object.material.color.set( 0xff0000 );
-      }
+    // const intersects = raycaster.intersectObjects( scene.children );
+    //   for ( let i = 0; i < intersects.length; i ++ ) {
+    //       intersects[ i ].object.material.color.set( 0xff0000 );
+    //   }
   
-    //const intersects = raycaster.intersectObjects( cube );
-    if(intersects.length == 0) {
-      cube.material.color.set( 0x9999FF );
-    }
+    // //const intersects = raycaster.intersectObjects( cube );
+    // if(intersects.length == 0) {
+    //   cube.material.color.set( 0x9999FF );
+    // }
+    let newX = ((window.innerWidth * value.x) / window.innerWidth) * 5;
+    let newY = -((window.innerHeight * value.y) / window.innerHeight) * 5;
+    cursor.setAttribute("position", newX + " " + newY + " -2.0");
+
   }
 
 //Method to Change prediction data into useful information
