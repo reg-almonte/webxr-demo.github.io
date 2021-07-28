@@ -130,19 +130,21 @@ const mouse = new THREE.Vector2();
 function moveTheRing(value) {
   ring.position.x = ((window.innerWidth * value.x) / window.innerWidth) * 5;
   ring.position.y = -((window.innerHeight * value.y) / window.innerHeight) * 5;
-  mouse.x = ((window.innerWidth * value.x) / window.innerWidth) * 5;
-  mouse.y = -((window.innerHeight * value.y) / window.innerHeight) * 5;
   renderer.render(scene, camera);
 
+  mouse.x = ( value.x / window.innerWidth ) * 2 - 1;
+	mouse.y = - ( evalue.y / window.innerHeight ) * 2 + 1;
   var raycaster = new THREE.Raycaster();
   raycaster.setFromCamera( mouse, camera );               
   const intersects = raycaster.intersectObjects( cube );
 
-	for ( let i = 0; i < intersects.length; i ++ ) {
-		intersects[ i ].object.material.color.set( 0xff0000 );
-	}
+	// for ( let i = 0; i < intersects.length; i ++ ) {
+	// 	intersects[ i ].object.material.color.set( 0xff0000 );
+	// }
   if(intersects.length == 0) {
-    scene.children[ i ].material.color.set( 0x9999FF );
+    cube.material.color.set( 0x9999FF );
+  } else {
+    cube.object.material.color.set( 0xff0000 );
   }
   // var intersects = raycaster.intersectObjects( scene.children );
   // if(intersects.length != 0)
