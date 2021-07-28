@@ -1,6 +1,7 @@
 const cameraView = document.getElementById("webcam");
 const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
+let trackButton = document.getElementById("trackbutton");
 let updateNote = document.querySelector("#updatenote");
 let cursor = document.createElement("a-ring");
 cursor.setAttribute("radiusInner", "0.05");
@@ -127,7 +128,5 @@ handTrack.load(modelParams).then(lmodel => {
     // detect objects in the image.
     model = lmodel
     updateNote.innerText = "Loaded model!"
-    // window.alert("Loaded model");
-    //trackButton.disabled = false
-    //sleep(500).then(() => {cameraStart(cameraView); });
+    trackButton.disabled = false;
 });
