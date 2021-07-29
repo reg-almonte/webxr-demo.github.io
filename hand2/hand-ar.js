@@ -121,6 +121,7 @@ function closeTheRing() {
     blueBox.setAttribute("material", "color: red");
     blueBox.setAttribute("geometry", "primitive: ring; radiusInner: 0.01; radiusOuter: 0.03");
     if (focused.length > 0) {
+        blueBox.setAttribute("material", "color: yellow");
         focused[0].setAttribute("color","blue");
     }
 }

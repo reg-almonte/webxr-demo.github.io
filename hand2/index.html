@@ -15,12 +15,10 @@
                 var defaultColor = el.getAttribute('color').toString();                
                 el.addEventListener('raycaster-intersected', function (evt) {
                     el.setAttribute("color","red");
-                    addIntersectedItems(el);
                 });
 
                 el.addEventListener('raycaster-intersected-cleared', function (evt) {
                     el.setAttribute("color", defaultColor);
-                    removeIntersectedItems(el);
                 });
             }
            
@@ -37,10 +35,12 @@
 
         el.addEventListener('mouseenter', function () {
             el.setAttribute("material","color: " + data.color.toString());
+            addIntersectedItems(el);
         });
 
         el.addEventListener('mouseleave', function () {
             el.setAttribute("material","color: " + defaultColor.toString());
+            removeIntersectedItems(el);
         });
         }
     });
@@ -81,7 +81,7 @@
             <a-entity class="not-clickable" geometry="primitive: sphere; radius:0.5" position="-1 1.6 -3"></a-entity>
         </a-entity>
 
-        <a-sphere color="pink" radius="0.5" position="0 1.0 -3" change-color-on-hover="color: #006600"></a-sphere>
+        <a-sphere color="yellow" radius="0.5" position="0 1.0 -3" change-color-on-hover="color: #006600"></a-sphere>
         <a-entity position="0 1.6 0">
             <a-entity id="camera-cursor" camera look-controls>
                 <a-entity
