@@ -106,10 +106,12 @@ function moveTheRing(value) {
 }
 
 function closeTheRing() {
+    blueBox.setAttribute("material", "color: red")
     blueBox.setAttribute("geometry", "primitive: ring; radiusInner: 0.01; radiusOuter: 0.03")
 }
 
 function openTheRing() {
+    blueBox.setAttribute("material", "color: green")
     blueBox.setAttribute("geometry", "primitive: ring; radiusInner: 0.02; radiusOuter: 0.05")
 }
 
