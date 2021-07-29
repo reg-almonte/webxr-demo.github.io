@@ -69,19 +69,8 @@
         optionalFeatures: dom-overlay,unbounded;
         overlayElement: #overlay;"
     >
-        <!-- <a-box color="#add8e6" depth="1" height="1" width="1.5"></a-box> -->
-        <!-- <a-entity raycaster="objects: .collidable" position="0 1.6 -3" rotation="0 0 45" 
-                  animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
-            <a-box color="#808080" depth="1" height="1.5" width="1"></a-box>
-        </a-entity> -->
 
-        <!-- <a-entity raycaster="objects: .clickable"  position="0 1.6 -3" cursor></a-entity> -->
-        <a-entity id="player" collider-check>
-            <a-entity class="clickable" geometry="primitive: box; width:0.5" position="1 1.6 -3"></a-entity>
-            <a-entity class="not-clickable" geometry="primitive: sphere; radius:0.5" position="-1 1.6 -3"></a-entity>
-        </a-entity>
-
-        <a-sphere color="pink" radius="0.5" position="0 1.0 -3" change-color-on-hover="color: #006600"></a-sphere>
+        <a-sphere id="sphere" color="yellow" radius="0.5" position="0 1.0 -3" change-color-on-hover="color: #006600"></a-sphere>
         <a-entity position="0 1.6 0">
             <a-entity id="camera-cursor" camera look-controls>
                 <a-entity

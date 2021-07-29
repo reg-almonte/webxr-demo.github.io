@@ -135,21 +135,21 @@ var focused = null;
 
 function addIntersectedItems(el) {
     focused = el;
-    document.querySelector(".hand-1 #pred-label span").innerHTML = "Added el";
+    document.querySelector(".hand-1 #pred-label span").innerHTML = "Added el: " + el.id;
 }
 
 function removeIntersectedItems(el) {
-    document.querySelector(".hand-1 #pred-label span").innerHTML = "Removing el";
+    document.querySelector(".hand-1 #pred-label span").innerHTML = "Removing el: " + el.id;
     if (focused != null) {
         focused = null;
-        document.querySelector(".hand-1 #pred-label span").innerHTML = "Removed el";
+        document.querySelector(".hand-1 #pred-label span").innerHTML = "Removed: " +  el.id + " - " + focused.id;
     }
 }
 
 //Method to Change prediction data into useful information
 function changeData(value) {
     let midvalX = value[0] + value[2] / 2;
-    let midvalY = value[1] + value[3] / 2;
+    let midvalY = value[1] + value[3] - 10;
   
     document.querySelector(".hand-1 #hand-x span").innerHTML = midvalX;
     document.querySelector(".hand-1 #hand-y span").innerHTML = midvalY;
