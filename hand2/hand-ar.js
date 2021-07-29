@@ -110,8 +110,8 @@ function moveTheRing(value) {
     //   cube.material.color.set( 0x9999FF );
     // }
     let newX = ((window.innerWidth * value.x) / window.innerWidth) * 2;
-    let newY = -((window.innerHeight * value.y) / window.innerHeight) * 2;
-    blueBox.setAttribute("position", newX + " " + newY + " -1.0");
+    let newY = -((window.innerHeight * value.y) / window.innerHeight) * 2 + 0.1;
+    blueBox.setAttribute("position", newX + " " + newY + " -3.0");
 
   }
 
