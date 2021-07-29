@@ -120,9 +120,9 @@ function moveTheRing(value) {
 function closeTheRing() {
     blueBox.setAttribute("material", "color: red");
     blueBox.setAttribute("geometry", "primitive: ring; radiusInner: 0.01; radiusOuter: 0.03");
-    if (focused.length > 0) {
+    if (focused != null) {
         blueBox.setAttribute("material", "color: yellow");
-        focused[0].setAttribute("color","blue");
+        focused.setAttribute("color","blue");
     }
 }
 
@@ -131,18 +131,18 @@ function openTheRing() {
     blueBox.setAttribute("geometry", "primitive: ring; radiusInner: 0.02; radiusOuter: 0.05");
 }
 
-var focused = [];
+var focused = null;
 
 function addIntersectedItems(el) {
-    focused.push(el);
-    document.querySelector(".hand-1 #pred-label span").innerHTML = "Added el: " + focused.length;;
+    focused = el;
+    document.querySelector(".hand-1 #pred-label span").innerHTML = "Added el";
 }
 
 function removeIntersectedItems(el) {
-    document.querySelector(".hand-1 #pred-label span").innerHTML = "Removing el: " + focused.length;;
-    if (focused.length > 0) {
-        focused.pop();
-        document.querySelector(".hand-1 #pred-label span").innerHTML = "Removed el: " + focused.length;
+    document.querySelector(".hand-1 #pred-label span").innerHTML = "Removing el";
+    if (focused != null) {
+        focused = null;
+        document.querySelector(".hand-1 #pred-label span").innerHTML = "Removed el";
     }
 }
 
