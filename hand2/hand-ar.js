@@ -115,7 +115,7 @@ function moveTheRing(value) {
     let newY = -((window.innerHeight * value.y) / window.innerHeight) * 2 + 0.1;
     blueBox.setAttribute("position", newX + " " + newY + " -1.5");
     if (grabbing && focused != null) {
-        document.querySelector(".hand-1 #pred-label span").innerHTML = "new Y" + newY;
+        document.querySelector(".hand-1 #pred-label span").innerHTML = "new Y: " + newY;
         focused.setAttribute("position", newX + " " + (newY + 1.6) + " -2.01");
     }
 
