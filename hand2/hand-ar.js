@@ -134,8 +134,8 @@ function openTheRing() {
 var focused = [];
 
 function addIntersectedItems(el) {
-    document.querySelector(".hand-1 #pred-label span").innerHTML = "Adding el: " + focused.length;;
     focused.push(el);
+    document.querySelector(".hand-1 #pred-label span").innerHTML = "Added el: " + focused.length;;
 }
 
 function removeIntersectedItems(el) {
