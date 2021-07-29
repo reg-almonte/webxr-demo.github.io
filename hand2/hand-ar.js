@@ -134,11 +134,14 @@ function openTheRing() {
 var focused = [];
 
 function addIntersectedItems(el) {
+    document.querySelector(".hand-1 #pred-label span").innerHTML = "Adding el";
     focused.push(el);
 }
 
 function removeIntersectedItems(el) {
+    document.querySelector(".hand-1 #pred-label span").innerHTML = "Removing el";
     if (focused.length > 0) {
+        document.querySelector(".hand-1 #pred-label span").innerHTML = "Removed el";
         focused.pop();
     }
 }
