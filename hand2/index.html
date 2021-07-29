@@ -79,15 +79,12 @@
             <a-entity class="not-clickable" geometry="primitive: sphere; radius:0.5" position="-1 1.6 -3"></a-entity>
         </a-entity>
 
-        <a-sphere color="purple" radius="0.5" position="0 1.0 -3" change-color-on-hover="color: #006600"></a-sphere>
+        <a-sphere color="pink" radius="0.5" position="0 1.0 -3" change-color-on-hover="color: #006600"></a-sphere>
         <a-entity position="0 1.6 0">
             <a-entity id="camera-cursor" camera look-controls>
                 <a-entity
                     id="blue-box"
-                    animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
-                    animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
-                    animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
-                    cursor="fuse: true;"
+                    cursor="fuse: false;"
                     material="color: blue;"
                     position="0 0 -2"
                     geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.05;"></a-entity>

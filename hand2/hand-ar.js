@@ -72,6 +72,7 @@ function startVideo(video) {
     });
 }
 
+var cursorClosed = false;
 function runDetection() {
     model.detect(cameraView).then(predictions => {
         model.renderPredictions(predictions, canvas, context, cameraView);
@@ -83,6 +84,13 @@ function runDetection() {
             if (predictions[i].label != "face") {
                 changeData(predictions[i].bbox);
                 document.querySelector(".hand-1 #pred-label span").innerHTML = predictions[i].label;
+                if (predictions[i].label == "closed" && !cursorClosed) {
+                    closeTheRing();
+                    cursorClosed = true;
+                } else (predictions[i].label == "open" && cursorClosed) {
+                    openTheRing();
+                    cursorClosed = false;
+                }
                 break;
             }
         }
@@ -91,29 +99,19 @@ function runDetection() {
 
 //Method to use prediction data to render cude accordingly
 function moveTheRing(value) {
-    // ring.position.x = ((window.innerWidth * value.x) / window.innerWidth) * 5;
-    // ring.position.y = -((window.innerHeight * value.y) / window.innerHeight) * 5;
-    // renderer.render(scene, camera);
-  
-    // mouse.x = ((window.innerWidth * value.x) / window.innerWidth) * 5;
-    //   mouse.y = -((window.innerHeight * value.y) / window.innerHeight) * 5;
-    // var raycaster = new THREE.Raycaster();
-    // raycaster.setFromCamera( mouse, camera );               
-  
-    // const intersects = raycaster.intersectObjects( scene.children );
-    //   for ( let i = 0; i < intersects.length; i ++ ) {
-    //       intersects[ i ].object.material.color.set( 0xff0000 );
-    //   }
-  
-    // //const intersects = raycaster.intersectObjects( cube );
-    // if(intersects.length == 0) {
-    //   cube.material.color.set( 0x9999FF );
-    // }
     let newX = ((window.innerWidth * value.x) / window.innerWidth) * 2;
     let newY = -((window.innerHeight * value.y) / window.innerHeight) * 2 + 0.1;
     blueBox.setAttribute("position", newX + " " + newY + " -1.5");
 
-  }
+}
+
+function closeTheRing() {
+    blueBox.setAttribute("geometry", "primitive: ring; radiusInner: 0.01; radiusOuter: 0.03")
+}
+
+function openTheRing() {
+    blueBox.setAttribute("geometry", "primitive: ring; radiusInner: 0.02; radiusOuter: 0.05")
+}
 
 //Method to Change prediction data into useful information
 function changeData(value) {
