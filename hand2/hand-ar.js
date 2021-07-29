@@ -120,8 +120,8 @@ function moveTheRing(value) {
 function closeTheRing() {
     blueBox.setAttribute("material", "color: red");
     blueBox.setAttribute("geometry", "primitive: ring; radiusInner: 0.01; radiusOuter: 0.03");
-    if (fruits.length > 0) {
-        fruits[0].setAttribute("color","blue");
+    if (focused.length > 0) {
+        focused[0].setAttribute("color","blue");
     }
 }
 
@@ -137,7 +137,9 @@ function addIntersectedItems(el) {
 }
 
 function removeIntersectedItems(el) {
-    focused.pop();
+    if (focused.length > 0) {
+        focused.pop();
+    }
 }
 
 //Method to Change prediction data into useful information
