@@ -55,9 +55,10 @@
         </a-entity> -->
 
         <a-entity raycaster="objects: .clickable" cursor></a-entity>
-        <a-entity id="blue-box" class="clickable" geometry="primitive: box" position="1 0 0"></a-entity>
-        <a-entity class="not-clickable" geometry="primitive: sphere" position="-1 0 0"></a-entity>
-        
+        <a-entity id="player" collider-check>
+            <a-entity id="blue-box" class="clickable" geometry="primitive: box" position="1 1.6 0"></a-entity>
+            <a-entity class="not-clickable" geometry="primitive: sphere" position="-1 1.6 0"></a-entity>
+        </a-entity>
         <a-entity position="0 1.6 0">
             <a-entity id="camera-cursor" camera look-controls>
             </a-entity>
