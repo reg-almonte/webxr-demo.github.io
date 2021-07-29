@@ -41,7 +41,7 @@ function toggleVideo() {
       isVideo = false;
       updateNote.innerText = "Video stopped";
     }
-  }
+}
 
 // Access the device camera and stream to cameraView
 function startVideo(video) {
@@ -87,7 +87,7 @@ function runDetection() {
                 if (predictions[i].label == "closed" && !cursorClosed) {
                     closeTheRing();
                     cursorClosed = true;
-                } else (predictions[i].label == "open" && cursorClosed) {
+                } else if (predictions[i].label == "open" && cursorClosed) {
                     openTheRing();
                     cursorClosed = false;
                 }
@@ -106,13 +106,13 @@ function moveTheRing(value) {
 }
 
 function closeTheRing() {
-    blueBox.setAttribute("material", "color: red")
-    blueBox.setAttribute("geometry", "primitive: ring; radiusInner: 0.01; radiusOuter: 0.03")
+    blueBox.setAttribute("material", "color: red");
+    blueBox.setAttribute("geometry", "primitive: ring; radiusInner: 0.01; radiusOuter: 0.03");
 }
 
 function openTheRing() {
-    blueBox.setAttribute("material", "color: green")
-    blueBox.setAttribute("geometry", "primitive: ring; radiusInner: 0.02; radiusOuter: 0.05")
+    blueBox.setAttribute("material", "color: green");
+    blueBox.setAttribute("geometry", "primitive: ring; radiusInner: 0.02; radiusOuter: 0.05");
 }
 
 //Method to Change prediction data into useful information
