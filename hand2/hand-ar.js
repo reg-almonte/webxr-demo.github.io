@@ -35,12 +35,24 @@ function toggleVideo() {
     if (!isVideo) {
       updateNote.innerText = "Starting video";
       startVideo(cameraView);
+      isVideo = true;
     } else {
       updateNote.innerText = "Stopping video";
-      handTrack.stopVideo(video);
+      stopVideo();
       isVideo = false;
       updateNote.innerText = "Video stopped";
     }
+}
+
+function stopVideo() {
+    if (window.localStream) {
+        window.localStream.getTracks().forEach((track) => {
+          track.stop();
+          return true;
+        });
+      } else {
+        return false;
+      }
 }
 
 // Access the device camera and stream to cameraView
@@ -108,11 +120,24 @@ function moveTheRing(value) {
 function closeTheRing() {
     blueBox.setAttribute("material", "color: red");
     blueBox.setAttribute("geometry", "primitive: ring; radiusInner: 0.01; radiusOuter: 0.03");
+    if (fruits.length > 0) {
+        fruits[0].setAttribute("color","blue");
+    }
 }
 
 function openTheRing() {
     blueBox.setAttribute("material", "color: green");
     blueBox.setAttribute("geometry", "primitive: ring; radiusInner: 0.02; radiusOuter: 0.05");
+}
+
+var focused = [];
+
+function addIntersectedItems(el) {
+    focused.push(el);
+}
+
+function removeIntersectedItems(el) {
+    focused.pop();
 }
 
 //Method to Change prediction data into useful information
