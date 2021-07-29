@@ -35,12 +35,12 @@
 
         el.addEventListener('mouseenter', function () {
             el.setAttribute("material","color: " + data.color.toString());
-            addIntersectedItems(el);
+            addIntersectedItems(el, this.id);
         });
 
         el.addEventListener('mouseleave', function () {
             el.setAttribute("material","color: " + defaultColor.toString());
-            removeIntersectedItems(el);
+            removeIntersectedItems(this.id);
         });
         }
     });
@@ -70,7 +70,7 @@
         overlayElement: #overlay;"
     >
 
-        <a-sphere id="sphere" color="yellow" radius="0.5" position="0 1.0 -3" change-color-on-hover="color: #006600"></a-sphere>
+        <a-sphere id="sphere" color="pink" radius="0.5" position="0 1.0 -3" change-color-on-hover="color: #006600"></a-sphere>
         <a-entity position="0 1.6 0">
             <a-entity id="camera-cursor" camera look-controls>
                 <a-entity
