@@ -11,7 +11,7 @@ let cursor = document.createElement("a-cursor");
 // cursor.setAttribute("radius-outer", "0.06");
 cursor.setAttribute("position", "0 0 -1.0");
 cursor.setAttribute("color", "green");
-camCursor.appendChild(cursor);
+// camCursor.appendChild(cursor);
 
 let isVideo = false;
 let model = null;
