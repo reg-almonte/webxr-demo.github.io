@@ -114,25 +114,31 @@ function moveTheRing(value) {
     let newX = ((window.innerWidth * value.x) / window.innerWidth) * 2;
     let newY = -((window.innerHeight * value.y) / window.innerHeight) * 2 + 0.1;
     blueBox.setAttribute("position", newX + " " + newY + " -1.5");
+    if (grabbing && focused != null) {
+        focused.setAttribute("position", newX + " " + newY + " -3");
+    }
 
 }
+
+var grabbing = false;
+var focused = null;
+var focusedId = "";
 
 function closeTheRing() {
     blueBox.setAttribute("material", "color: red");
     blueBox.setAttribute("geometry", "primitive: ring; radiusInner: 0.01; radiusOuter: 0.03");
     if (focused != null) {
         blueBox.setAttribute("material", "color: yellow");
-        focused.setAttribute("material", "color: blue");
+        grabbing = true;
+        //focused.setAttribute("material", "color: blue");
     }
 }
 
 function openTheRing() {
     blueBox.setAttribute("material", "color: green");
     blueBox.setAttribute("geometry", "primitive: ring; radiusInner: 0.02; radiusOuter: 0.05");
+    grabbing = false;
 }
-
-var focused = null;
-var focusedId = "";
 
 function addIntersectedItems(el, idName) {
     focused = el;
@@ -140,7 +146,7 @@ function addIntersectedItems(el, idName) {
     document.querySelector(".hand-1 #pred-label span").innerHTML = "Added el: " + idName;
 }
 
-function removeIntersectedItems(el, idName) {
+function removeIntersectedItems(idName) {
     document.querySelector(".hand-1 #pred-label span").innerHTML = "Removing el: " + idName;
     if (focused != null) {
         focused = null;
