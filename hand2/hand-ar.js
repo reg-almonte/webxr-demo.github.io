@@ -115,7 +115,8 @@ function moveTheRing(value) {
     let newY = -((window.innerHeight * value.y) / window.innerHeight) * 2 + 0.1;
     blueBox.setAttribute("position", newX + " " + newY + " -1.5");
     if (grabbing && focused != null) {
-        focused.setAttribute("position", newX + " " + newY+1.6 + " -2.01");
+        document.querySelector(".hand-1 #pred-label span").innerHTML = "new Y" + newY;
+        focused.setAttribute("position", newX + " " + (newY + 1.6) + " -2.01");
     }
 
 }
@@ -143,14 +144,11 @@ function openTheRing() {
 function addIntersectedItems(el, idName) {
     focused = el;
     focusedId = idName;
-    document.querySelector(".hand-1 #pred-label span").innerHTML = "Added el: " + idName;
 }
 
 function removeIntersectedItems(idName) {
-    document.querySelector(".hand-1 #pred-label span").innerHTML = "Removing el: " + idName;
     if (focused != null) {
         focused = null;
-        document.querySelector(".hand-1 #pred-label span").innerHTML = "Removed: " +  idName + " - " + focusedId;
         focusedId = "";
     }
 }
