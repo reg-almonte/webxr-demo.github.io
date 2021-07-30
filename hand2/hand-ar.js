@@ -87,7 +87,7 @@ function startVideo(video) {
 var cursorClosed = false;
 function runDetection() {
     model.detect(cameraView).then(predictions => {
-        // model.renderPredictions(predictions, canvas, context, cameraView);
+        model.renderPredictions(predictions, canvas, context, cameraView);
         
         if (isVideo) {
             requestAnimationFrame(runDetection);
@@ -116,7 +116,7 @@ function moveTheRing(value) {
     blueBox.setAttribute("position", newX + " " + newY + " -1.5");
     if (grabbing && focused != null) {
         document.querySelector(".hand-1 #pred-label span").innerHTML = "new Y: " + newY;
-        focused.setAttribute("position", newX + " " + (newY + 1.6) + " -2.001");
+        focused.setAttribute("position", newX + " " + (newY + 1.6) + " -2.01");
     }
 
 }
@@ -126,19 +126,21 @@ var focused = null;
 var focusedId = "";
 
 function closeTheRing() {
-    blueBox.setAttribute("material", "color: red");
+    blueBox.setAttribute("material", "color: darkblue");
     blueBox.setAttribute("geometry", "primitive: ring; radiusInner: 0.01; radiusOuter: 0.03");
     if (focused != null) {
-        blueBox.setAttribute("material", "color: yellow");
         grabbing = true;
-        //focused.setAttribute("material", "color: blue");
+        focused.setAttribute("scale","1.05 1.05 1.05");
     }
 }
 
 function openTheRing() {
-    blueBox.setAttribute("material", "color: green");
+    blueBox.setAttribute("material", "color: blue");
     blueBox.setAttribute("geometry", "primitive: ring; radiusInner: 0.02; radiusOuter: 0.05");
     grabbing = false;
+    if (focused != null) {
+        focused.setAttribute("scale","1.1 1.1 1.1");
+    }
 }
 
 function addIntersectedItems(el, idName) {
