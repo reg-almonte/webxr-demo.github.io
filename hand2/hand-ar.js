@@ -87,7 +87,7 @@ function startVideo(video) {
 var cursorClosed = false;
 function runDetection() {
     model.detect(cameraView).then(predictions => {
-        model.renderPredictions(predictions, canvas, context, cameraView);
+        // model.renderPredictions(predictions, canvas, context, cameraView);
         
         if (isVideo) {
             requestAnimationFrame(runDetection);
@@ -116,7 +116,7 @@ function moveTheRing(value) {
     blueBox.setAttribute("position", newX + " " + newY + " -1.5");
     if (grabbing && focused != null) {
         document.querySelector(".hand-1 #pred-label span").innerHTML = "new Y: " + newY;
-        focused.setAttribute("position", newX + " " + (newY + 1.6) + " -2.01");
+        focused.setAttribute("position", newX + " " + (newY + 1.6) + " -2.001");
     }
 
 }

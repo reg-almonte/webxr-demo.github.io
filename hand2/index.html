@@ -8,21 +8,6 @@
     <link rel="stylesheet" href="style.css" />
 
     <script>
-        AFRAME.registerComponent('collider-check', {  
-            dependencies: ['raycaster'],      
-            init: function () {
-                var el = this.el;
-                var defaultColor = el.getAttribute('color').toString();                
-                el.addEventListener('raycaster-intersected', function (evt) {
-                    el.setAttribute("color","red");
-                });
-
-                el.addEventListener('raycaster-intersected-cleared', function (evt) {
-                    el.setAttribute("color", defaultColor);
-                });
-            }
-           
-        });
         AFRAME.registerComponent('change-color-on-hover', {
         schema: {
         color: {default: 'red'}
@@ -34,12 +19,14 @@
         var defaultColor = el.getAttribute('material').color;
 
         el.addEventListener('mouseenter', function () {
-            el.setAttribute("material","color: " + data.color.toString());
+            // el.setAttribute("material","color: " + data.color.toString());
+            el.setAttribute("scale","1.1 1.1 1.1");
             addIntersectedItems(el, this.id);
         });
 
         el.addEventListener('mouseleave', function () {
-            el.setAttribute("material","color: " + defaultColor.toString());
+            // el.setAttribute("material","color: " + defaultColor.toString());
+            el.setAttribute("scale","1.0 1.0 1.0");
             removeIntersectedItems(this.id);
         });
         }
@@ -48,9 +35,6 @@
   </head>
 
   <body>
-    <!-- <video id="webcam" hidden></video>
-    <canvas id="canvas" class="border canvasbox"></canvas>
-    <div id="updatenote" class="updatenote mt10">loading model ..</div> -->
     <div class="tracker">
         <video id="myvideo"></video>
         <canvas id="canvas" class="border"></canvas>
@@ -70,7 +54,7 @@
         overlayElement: #overlay;"
     >
 
-        <a-sphere id="sphere" color="pink" radius="0.3" position="0 1.0 -2.01" change-color-on-hover="color: #006600"></a-sphere>
+        <a-sphere id="sphere" color="pink" radius="0.3" position="0 1.0 -2.001" change-color-on-hover="color: #006600"></a-sphere>
         <a-entity position="0 1.6 0">
             <a-entity id="camera-cursor" camera look-controls>
                 <a-entity
@@ -84,7 +68,6 @@
     </a-scene>
     <div id="overlay">
         <input id="trackbutton" type="button" onclick="toggleVideo()" style="position:absolute; bottom: 20px; left: 20px; width:150px; height: 50px; z-index:100;" value="Video Toggle">    
-        <!-- <button id="trackbutton" disabled onclick="toggleVideo()">Video Toggle</button> -->
     </div>
     <script src="https://unpkg.com/carbon-components@latest/scripts/carbon-components.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/handtrackjs/dist/handtrack.min.js"> </script>
